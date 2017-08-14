@@ -77,7 +77,7 @@ obj/loragw_spi.o: src/loragw_spi.native.c inc/loragw_spi.h inc/config.h
 	$(CC) -c $(CFLAGS) $< -o $@
 else ifeq ($(CFG_SPI),ftdi)
 obj/loragw_spi.o: src/loragw_spi.ftdi.c inc/loragw_spi.h inc/config.h
-	$(CC) -c $(CFLAGS) $< -o $@
+	$(CC) -c $(CFLAGS) -DLIBFTDI1=1 $< -o $@
 endif
 
 obj/loragw_reg.o: src/loragw_reg.c inc/loragw_reg.h inc/loragw_spi.h inc/config.h
